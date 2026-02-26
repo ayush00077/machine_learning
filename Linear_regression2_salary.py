@@ -1,14 +1,4 @@
-# Scenario: Predicting House Prices Based on Area
 
-# A real estate company wants to predict the price of a house based on its area (in square feet). They collected data from recently sold houses.
-# They believe there is a linear relationship:
-# Price=m×Area+b
-# Your task is to:
-# Load the dataset
-# Visualize the data
-# Train a Linear Regression model
-# Predict house prices
-# Evaluate the model
 
 # Step 1 : Import libraries
 import pandas as pd

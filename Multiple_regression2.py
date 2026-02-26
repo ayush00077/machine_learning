@@ -40,6 +40,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 model = LinearRegression()
 model.fit(X_train, y_train)
 
+# after this model gets trained with data and it now has slope and intercept
+
 
 # Predict on test data
 y_pred = model.predict(X_test)

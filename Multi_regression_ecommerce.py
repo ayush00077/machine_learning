@@ -1,4 +1,3 @@
-
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
@@ -24,7 +23,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 model = LinearRegression()
 model.fit(X_train, y_train)
 
-# so now e are feeding input data that we had at beggining 20% to test for values
+# so now we are feeding input data that we had at beggining 20% to test for values
 
 y_pred = model.predict(X_test)
 

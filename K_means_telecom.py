@@ -6,9 +6,7 @@ from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import silhouette_score
 
-# --------------------------------------------------
-# 1. Create synthetic telecom customer dataset
-# --------------------------------------------------
+
 np.random.seed(42)
 
 data = {
@@ -21,20 +19,14 @@ data = {
 
 df = pd.DataFrame(data)
 
-# --------------------------------------------------
-# 2. Select features (DO NOT use CustomerID)
-# --------------------------------------------------
+
 X = df[['MonthlyBill', 'CallDuration', 'InternetUsage', 'SupportCalls']]
 
-# --------------------------------------------------
-# 3. Feature Scaling (VERY IMPORTANT for K-Means)
-# --------------------------------------------------
+
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
-# --------------------------------------------------
-# 4. Elbow Method (WCSS / Inertia)
-# --------------------------------------------------
+
 inertia = []
 K_range = range(2, 10)
 
@@ -50,9 +42,7 @@ plt.xlabel('Number of clusters (K)')
 plt.ylabel('WCSS (Inertia)')
 plt.show()
 
-# --------------------------------------------------
-# 5. Silhouette Score
-# --------------------------------------------------
+
 silhouette_scores = []
 
 for k in K_range:
@@ -62,24 +52,18 @@ for k in K_range:
     silhouette_scores.append(score)
     print(f"K = {k}, Silhouette Score = {score:.3f}")
 
-# --------------------------------------------------
-# 6. Best K based on Silhouette Score
-# --------------------------------------------------
 best_k = K_range[silhouette_scores.index(max(silhouette_scores))]
 print(f"\nBest K based on Silhouette Score: {best_k}")
 
-# --------------------------------------------------
-# 7. Train Final K-Means Model
-# --------------------------------------------------
+
+
 final_kmeans = KMeans(n_clusters=best_k, random_state=42)
 df['Cluster'] = final_kmeans.fit_predict(X_scaled)
 
 print("\nCluster counts:")
 print(df['Cluster'].value_counts())
 
-# --------------------------------------------------
-# 8. (Optional) Visualize Silhouette Scores
-# --------------------------------------------------
+
 plt.figure(figsize=(6, 4))
 plt.plot(K_range, silhouette_scores, marker='o', color='green')
 plt.title('Silhouette Score vs K')

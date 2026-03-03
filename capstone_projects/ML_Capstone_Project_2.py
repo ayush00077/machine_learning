@@ -1,3 +1,16 @@
+# Description
+# Capstone Project: Student Success & Career Path Prediction
+
+# Scenario
+
+# The university wants to analyze student performance data to:
+
+# Predict exam scores (Regression).
+# Classify students into “At Risk” vs. “On Track” categories (Classification).
+# Cluster students into groups with similar study habits (Clustering).
+# Recommend interventions (extra tutoring, workshops, counseling).
+
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression, LogisticRegression
